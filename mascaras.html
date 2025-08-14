@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Máscaras CPAP - Sleep Care</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header-main">
+        <div class="container">
+            <div class="row align-items-center py-3">
+                <div class="col-lg-3 col-md-4 col-6">
+                    <a href="index.html" class="text-decoration-none">
+                       <h1 class="logo-text" style="font-size: 36px; font-weight: bold;">Sleep Care</h1>
+                    </a>
+                </div>
+                <div class="col-lg-6 col-md-4 d-none d-md-block">
+                    <form class="search-form">
+                        <div class="input-group">
+                            <input type="search" class="form-control" placeholder="Buscar productos..." aria-label="Buscar">
+                            <button class="btn btn-primary" type="submit"><i class="bi bi-search"></i></button>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-lg-3 col-md-4 col-6 text-end">
+                    <div class="header-actions d-flex justify-content-end align-items-center">
+                        <div class="dropdown">
+                            <button class="btn btn-primary position-relative dropdown-toggle" type="button" id="cartDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="bi bi-cart3"></i>
+                                <span id="cartBadge" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                    0
+                                    <span class="visually-hidden">productos en el carrito</span>
+                                </span>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="cartDropdown">
+                                <li><h6 class="dropdown-header">Tu Carrito</h6></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li id="cartItems"></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><span id="cartTotal" class="dropdown-item fw-bold">Total: $0.00</span></li>
+                                <li><a class="dropdown-item"><button id="buyButton" class="btn btn-primary w-100">Comprar</button></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain" aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarMain">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdownCategorias" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Categorías
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownCategorias">
+                            <li><a class="dropdown-item active" href="mascaras.html">Máscaras CPAP</a></li>
+                            <li><a class="dropdown-item" href="accessories.html">Accesorios</a></li>
+                            <li><a class="dropdown-item" href="sueño.html">Comodidad del Sueño</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#featured-products">Productos Destacados</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownAyuda" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Ayuda
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownAyuda">
+                            <a class="dropdown-item" href="help.html#guia-apnea">Guía de Apnea</a>
+                            <a class="dropdown-item" href="help.html#faq">Preguntas Frecuentes</a>
+                            <li><a class="dropdown-item" href="help.html#soporte-tecnico">Soporte Técnico</a>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <main class="container my-5">
+        <h1 class="mb-4">Máscaras CPAP</h1>
+        <div class="row mb-4">
+            <div class="col-md-6">
+                <div class="input-group">
+                    <input type="text" id="searchInput" class="form-control" placeholder="Buscar máscaras...">
+                    <button class="btn btn-outline-primary" type="button" id="searchButton">
+                        <i class="bi bi-search"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mb-4">
+            <div class="col-md-3 mb-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Filtros</h5>
+                        <form id="filterForm">
+                            <div class="mb-3">
+                                <label class="form-label">Tipo de máscara</label>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="nasal" id="filterNasal">
+                                    <label class="form-check-label" for="filterNasal">Nasal</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="facial" id="filterFacial">
+                                    <label class="form-check-label" for="filterFacial">Facial completa</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="nasal-pillow" id="filterNasalPillow">
+                                    <label class="form-check-label" for="filterNasalPillow">Nasal Pillow</label>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="priceRange" class="form-label">Precio máximo: $<span id="priceValue">300</span></label>
+                                <input type="range" class="form-range" min="0" max="300" step="10" id="priceRange">
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100">Aplicar filtros</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div id="productGrid" class="row row-cols-1 row-cols-md-3 g-4">
+                    <div class="col">
+                        <div class="card h-100">
+                            <img src="/placeholder.svg?height=200&width=200" class="card-img-top product-image" alt="ResMed AirFit N30i">
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title">ResMed AirFit N30i</h5>
+                                <p class="card-text">Tipo: Nasal</p>
+                                <p class="card-text">Precio: $129.99</p>
+                                <button class="btn btn-primary mt-auto" onclick="addToCart(1)">Añadir al carrito</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100">
+                            <img src="/placeholder.svg?height=200&width=200" class="card-img-top product-image" alt="Philips Respironics DreamWear">
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title">Philips Respironics DreamWear</h5>
+                                <p class="card-text">Tipo: Nasal</p>
+                                <p class="card-text">Precio: $149.99</p>
+                                <button class="btn btn-primary mt-auto" onclick="addToCart(2)">Añadir al carrito</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100">
+                            <img src="/placeholder.svg?height=200&width=200" class="card-img-top product-image" alt="Fisher & Paykel Vitera">
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title">Fisher & Paykel Vitera</h5>
+                                <p class="card-text">Tipo: Facial</p>
+                                <p class="card-text">Precio: $189.99</p>
+                                <button class="btn btn-primary mt-auto" onclick="addToCart(3)">Añadir al carrito</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100">
+                            <img src="/placeholder.svg?height=200&width=200" class="card-img-top product-image" alt="ResMed AirFit P10">
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title">ResMed AirFit P10</h5>
+                                <p class="card-text">Tipo: Nasal Pillow</p>
+                                <p class="card-text">Precio: $109.99</p>
+                                <button class="btn btn-primary mt-auto" onclick="addToCart(4)">Añadir al carrito</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100">
+                            <img src="/placeholder.svg?height=200&width=200" class="card-img-top product-image" alt="Philips Respironics Amara View">
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title">Philips Respironics Amara View</h5>
+                                <p class="card-text">Tipo: Facial</p>
+                                <p class="card-text">Precio: $169.99</p>
+                                <button class="btn btn-primary mt-auto" onclick="addToCart(5)">Añadir al carrito</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100">
+                            <img src="/placeholder.svg?height=200&width=200" class="card-img-top product-image" alt="Fisher & Paykel Brevida">
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title">Fisher & Paykel Brevida</h5>
+                                <p class="card-text">Tipo: Nasal Pillow</p>
+                                <p class="card-text">Precio: $119.99</p>
+                                <button class="btn btn-primary mt-auto" onclick="addToCart(6)">Añadir al carrito</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <nav aria-label="Navegación de productos">
+            <ul class="pagination justify-content-center" id="pagination">
+                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+            </ul>
+        </nav>
+    </main>
+
+    <footer class="bg-dark text-light py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <h5 class="mb-4">Sobre Sleep Care</h5>
+                    <p>Nos dedicamos a mejorar la calidad de vida de las personas con apnea del sueño, ofreciendo soluciones innovadoras y de alta calidad.</p>
+                    <div class="mt-4">
+                        <a href="#" class="text-light me-3"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="text-light me-3"><i class="bi bi-twitter"></i></a>
+                        <a href="#" class="text-light me-3"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="text-light"><i class="bi bi-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <h5 class="mb-4">Enlaces Rápidos</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-light text-decoration-none mb-2 d-inline-block">Inicio</a></li>
+                        <li><a href="#" class="text-light text-decoration-none mb-2 d-inline-block">Productos</a></li>
+                        <li><a href="#" class="text-light text-decoration-none mb-2 d-inline-block">Sobre Nosotros</a></li>
+                        <li><a href="#" class="text-light text-decoration-none mb-2 d-inline-block">Contacto</a></li>
+                        <li><a href="#" class="text-light text-decoration-none mb-2 d-inline-block">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="mb-4">Contacto</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="bi bi-geo-alt me-2"></i> 123 Calle Principal, Ciudad, País</li>
+                        <li class="mb-2"><i class="bi bi-telephone me-2"></i> (123) 456-7890</li>
+                        <li class="mb-2"><i class="bi bi-envelope me-2"></i> info@sleepcare.com</li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="mb-4">Boletín Informativo</h5>
+                    <p>Suscríbete para recibir noticias y ofertas especiales.</p>
+                    <form class="mt-3">
+                        <div class="input-group mb-3">
+                            <input type="email" class="form-control" placeholder="Tu email" aria-label="Tu email" aria-describedby="button-addon2">
+                            <button class="btn btn-primary" type="button" id="button-addon2">Suscribirse</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <hr class="my-4 bg-secondary">
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0">&copy; 2024 Sleep Care. Todos los derechos reservados.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end mt-3 mt-md-0">
+                    <a href="#" class="text-light text-decoration-none me-3">Términos y Condiciones</a>
+                    <a href="#" class="text-light text-decoration-none">Política de Privacidad</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="mascaras.js"></script>
+    <script src="cart.js"></script>
+</body>
+</html>

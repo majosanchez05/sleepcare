@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sleep Care - Soluciones Profesionales para Apnea del Sueño</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header-main">
+        <div class="container">
+            <div class="row align-items-center py-3">
+                <div class="col-lg-3 col-md-4 col-6">
+                    <a href="index.html" class="text-decoration-none">
+                        <h1 class="logo-text" style="font-size: 36px; font-weight: bold;">Sleep Care</h1>
+                    </a>
+                </div>
+                <div class="col-lg-6 col-md-4 d-none d-md-block">
+                    <form class="search-form">
+                        <div class="input-group">
+                            <input type="search" class="form-control" placeholder="Buscar productos..." aria-label="Buscar">
+                            <button class="btn btn-primary" type="submit"><i class="bi bi-search"></i></button>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-lg-3 col-md-4 col-6 text-end">
+                    <div class="header-actions d-flex justify-content-end align-items-center">
+                        <div class="dropdown">
+                            <button class="btn btn-primary position-relative dropdown-toggle" type="button" id="cartDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="bi bi-cart3"></i>
+                                <span id="cartBadge" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                    0
+                                    <span class="visually-hidden">productos en el carrito</span>
+                                </span>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="cartDropdown">
+                                <li><h6 class="dropdown-header">Tu Carrito</h6></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li id="cartItems">
+                                </li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><span id="cartTotal" class="dropdown-item fw-bold">Total: $0.00</span></li>
+                                <li><a class="dropdown-item"><button id="buyButton" class="btn btn-primary w-100">Comprar</button></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain" aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarMain">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownCategorias" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Categorías
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownCategorias">
+                            <a class="dropdown-item" href="mascaras.html">Máscaras CPAP</a>
+                            <a class="dropdown-item" href="accessories.html">Accesorios</a>
+                            <li><a class="dropdown-item" href="sueño.html">Comodidad del Sueño</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#featured-products">Productos Destacados</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="help.html" id="navbarDropdownAyuda" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Ayuda
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownAyuda">
+                            <a class="dropdown-item" href="help.html#guia-apnea">Guía de Apnea</a>
+                            <a class="dropdown-item" href="help.html#faq">Preguntas Frecuentes</a>
+                            <li><a class="dropdown-item" href="help.html#soporte-tecnico">Soporte Técnico</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section class="hero-section">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <h1 class="display-4 fw-bold mb-4">Descubre el Sueño Reparador</h1>
+                        <p class="lead mb-4">Soluciones innovadoras para la apnea del sueño. Mejora tu calidad de vida con nuestros dispositivos de última generación.</p>
+                        <a href="#featured-products" class="btn btn-primary btn-lg">Explorar Productos</a>
+                    </div>
+                    <div class="col-lg-6">
+                        <img src="img/durmiendo.jpg" alt="Persona durmiendo plácidamente" class="img-fluid rounded-3 shadow-lg">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="featured-products" class="py-5">
+            <div class="container">
+                <h2 class="text-center mb-5">Productos Destacados</h2>
+                <div class="row g-4" id="featured-products-container">
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-light py-5">
+            <div class="container">
+                <h2 class="text-center mb-5">¿Por qué elegir Sleep Care?</h2>
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <div class="card-body text-center">
+                                <i class="bi bi-award text-primary display-4 mb-3"></i>
+                                <h3 class="h5 card-title">Calidad Certificada</h3>
+                                <p class="card-text">Todos nuestros productos cumplen con los más altos estándares de calidad y seguridad.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <div class="card-body text-center">
+                                <i class="bi bi-headset text-primary display-4 mb-3"></i>
+                                <h3 class="h5 card-title">Soporte Experto 24/7</h3>
+                                <p class="card-text">Nuestro equipo de especialistas está disponible para ayudarte en cualquier momento.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <div class="card-body text-center">
+                                <i class="bi bi-truck text-primary display-4 mb-3"></i>
+                                <h3 class="h5 card-title">Envío Rápido y Seguro</h3>
+                                <p class="card-text">Entrega garantizada en 2-3 días hábiles con seguimiento en tiempo real.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-5">
+            <div class="container">
+                <h2 class="text-center mb-5">Testimonios de Clientes</h2>
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                        <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <div class="card border-0 shadow">
+                                        <div class="card-body p-5">
+                                            <p class="lead mb-4">"Gracias a Sleep Care, finalmente puedo dormir toda la noche. Su CPAP es silencioso y cómodo."</p>
+                                            <div class="d-flex align-items-center">
+                                                <img src="persona2.png" alt="María G." class="rounded-circle me-3" width="60">
+                                                <div>
+                                                    <h5 class="mb-0">María G.</h5>
+                                                    <small class="text-muted">Cliente desde 2020</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <div class="card border-0 shadow">
+                                        <div class="card-body p-5">
+                                            <p class="lead mb-4">"El servicio al cliente de Sleep Care es excepcional. Siempre están dispuestos a ayudar."</p>
+                                            <div class="d-flex align-items-center">
+                                                <img src="persona1.png" alt="Carlos R." class="rounded-circle me-3" width="60">
+                                                <div>
+                                                    <h5 class="mb-0">Carlos R.</h5>
+                                                    <small class="text-muted">Cliente desde 2021</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Anterior</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Siguiente</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-dark text-light py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <h5 class="mb-4">Sobre Sleep Care</h5>
+                    <p>Nos dedicamos a mejorar la calidad de vida de las personas con apnea del sueño, ofreciendo soluciones innovadoras y de alta calidad.</p>
+                    <div class="mt-4">
+                        <a href="#" class="text-light me-3"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="text-light me-3"><i class="bi bi-twitter"></i></a>
+                        <a href="#" class="text-light me-3"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="text-light"><i class="bi bi-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <h5 class="mb-4">Enlaces Rápidos</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-light text-decoration-none mb-2 d-inline-block">Inicio</a></li>
+                        <li><a href="#" class="text-light text-decoration-none mb-2 d-inline-block">Productos</a></li>
+                        <li><a href="#" class="text-light text-decoration-none mb-2 d-inline-block">Sobre Nosotros</a></li>
+                        <li><a href="#" class="text-light text-decoration-none mb-2 d-inline-block">Contacto</a></li>
+                        <li><a href="#" class="text-light text-decoration-none mb-2 d-inline-block">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="mb-4">Contacto</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="bi bi-geo-alt me-2"></i> 123 Calle Principal, Ciudad, País</li>
+                        <li class="mb-2"><i class="bi bi-telephone me-2"></i> (123) 456-7890</li>
+                        <li class="mb-2"><i class="bi bi-envelope me-2"></i> info@sleepcare.com</li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="mb-4">Boletín Informativo</h5>
+                    <p>Suscríbete para recibir noticias y ofertas especiales.</p>
+                    <form class="mt-3">
+                        <div class="input-group mb-3">
+                            <input type="email" class="form-control" placeholder="Tu email" aria-label="Tu email" aria-describedby="button-addon2">
+                            <button class="btn btn-primary" type="button" id="button-addon2">Suscribirse</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <hr class="my-4 bg-secondary">
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0">&copy; 2024 Sleep Care. Todos los derechos reservados.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end mt-3 mt-md-0">
+                    <a href="#" class="text-light text-decoration-none me-3">Términos y Condiciones</a>
+                    <a href="#" class="text-light text-decoration-none">Política de Privacidad</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+    <script src="cart.js"></script>
+</body>
+</html>
